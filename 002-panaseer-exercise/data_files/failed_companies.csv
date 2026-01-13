@@ -1,0 +1,7 @@
+company_id,reason
+INVALID_ID,non_numeric
+,null_or_nonstring
+00.445790,non_numeric
+1.15632E+07,non_numeric
+00001000,404_not_found
+00232323,404_not_found

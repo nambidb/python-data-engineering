@@ -1,0 +1,27 @@
+## 1. Data Contract (JSON Schema)
+
+**Objective:** Define the most critical fields from the Companies House "Company Profile" resource for supplier risk analysis.
+
+```json
+{
+  "company_number": "string",
+  "company_name": "string",
+  "company_status": "string",
+  "date_of_creation": "string (YYYY-MM-DD)",
+  "date_of_cessation": "string (YYYY-MM-DD) or null",
+  "sic_codes": ["string"],
+  "last_accounts": {
+    "made_up_to": "string (YYYY-MM-DD)",
+    "type": "string"
+  }
+}
+
+| Field               | Supplier Risk Relevance                                    |
+| ------------------- | ---------------------------------------------------------- |
+| `company_status`    | Detects inactive/dissolved companies                       |
+| `date_of_creation`  | Very young companies may be higher risk                    |
+| `date_of_cessation` | Indicates dissolution or liquidation                       |
+| `sic_codes`         | Verifies company operates in expected industry             |
+| `last_accounts`     | Late or missing filings indicate financial/compliance risk |
+| `company_number`    | Unique identifier for enrichment                           |
+| `company_name`      | For reporting and validation                               |

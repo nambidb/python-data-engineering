@@ -1,0 +1,11 @@
+Code,Meaning,When it happens,How to handle
+201,Created,POST request created a new resource,Often just log success
+204,No Content,"Request succeeded, but no data returned",Can skip parsing
+400,Bad Request,Invalid request syntax or parameters,"Check query, payload, headers"
+401,Unauthorized,Missing / invalid API token,Recheck auth token / credentials
+403,Forbidden,You don’t have permission,"Check roles, permissions"
+404,Not Found,Resource not found,"Log, alert, maybe skip"
+429,Too Many Requests,Rate limit exceeded,Implement retry with backoff
+500,Internal Server Error,API server error,"Retry after delay, alert support"
+502,Bad Gateway / 503 Service Unavailable,Temporary API/server issues,Retry with exponential backoff
+504,Gateway Timeout,Server took too long,Retry or alert
